@@ -141,6 +141,20 @@ footer.site-footer .brand { display:flex; align-items:center; gap:10px; font-wei
 footer.site-footer .brand img { width:36px; height:36px; border-radius:6px; object-fit:cover; border:2px solid #15c04b; }
 footer.site-footer small { color:#666; }
 
+/* SECTION SPLIT & ALTERNATING BACKGROUNDS */
+.section { padding:4rem 0; position:relative; }
+.section .container { padding-top:0.5rem; padding-bottom:0.5rem; }
+/* keep hero gradient as-is */
+#hero { color: #fff; }
+/* alternate backgrounds for other sections (keeps hero intact) */
+section:not(#hero):nth-of-type(odd) { background:#ffffff; }
+section:not(#hero):nth-of-type(even) { background:#f7fbff; }
+/* subtle divider between sections */
+.section + .section { border-top:1px solid rgba(0,0,0,0.04); }
+.section .section-title { margin-bottom:1.25rem; }
+/* optional subtle angled edge effect (decorative) */
+.section:not(:first-of-type)::before { content:""; position:absolute; left:0; right:0; top:-18px; height:36px; transform:skewY(-2.5deg); background:transparent; pointer-events:none; }
+
 /* ABOUT: Social icons */
 .social-icons { display:flex; gap:10px; margin-top:1rem; }
 .social-btn { width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; background:#fff; box-shadow:0 8px 18px rgba(0,0,0,0.06); transition:transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s; cursor:pointer; }
@@ -274,7 +288,7 @@ footer.site-footer small { color:#666; }
             <img src="https://picsum.photos/seed/project3/600/400" alt="Project 3 image">
             <a class="btn-floating halfway-fab waves-effect waves-light green" href="https://example.com/project-3" target="_blank" rel="noopener noreferrer" aria-label="Open Project 3"><i class="material-icons">link</i></a>
           </div>
-          <div class="card-content"><span class="card-title">Harmony Villas</span><p>Low-density villas with focus on greenery and family living.</p></div>
+          <div class="card-content"><span class="card-title">Creator Of Temples</span><p>Low-density villas with focus on greenery and family living.</p></div>
         </div>
       </div>
 
@@ -284,7 +298,7 @@ footer.site-footer small { color:#666; }
             <img src="https://picsum.photos/seed/project4/600/400" alt="Project 4 image">
             <a class="btn-floating halfway-fab waves-effect waves-light green" href="https://example.com/project-4" target="_blank" rel="noopener noreferrer" aria-label="Open Project 4"><i class="material-icons">link</i></a>
           </div>
-          <div class="card-content"><span class="card-title">Sunset Heights</span><p>Affordable housing initiative with modern utilities and parks.</p></div>
+          <div class="card-content"><span class="card-title">Integrated Marketting and Producers Associations</span><p>Affordable housing initiative with modern utilities and parks.</p></div>
         </div>
       </div>
 
@@ -294,7 +308,7 @@ footer.site-footer small { color:#666; }
             <img src="https://picsum.photos/seed/project5/600/400" alt="Project 5 image">
             <a class="btn-floating halfway-fab waves-effect waves-light green" href="https://example.com/project-5" target="_blank" rel="noopener noreferrer" aria-label="Open Project 5"><i class="material-icons">link</i></a>
           </div>
-          <div class="card-content"><span class="card-title">Heritage Garden</span><p>Restoration and development of public gardens and cultural spaces.</p></div>
+          <div class="card-content"><span class="card-title">Execution of 4500 Sites</span><p>Restoration and development of public gardens and cultural spaces.</p></div>
         </div>
       </div>
 
@@ -304,7 +318,7 @@ footer.site-footer small { color:#666; }
             <img src="https://picsum.photos/seed/project6/600/400" alt="Project 6 image">
             <a class="btn-floating halfway-fab waves-effect waves-light green" href="https://example.com/project-6" target="_blank" rel="noopener noreferrer" aria-label="Open Project 6"><i class="material-icons">link</i></a>
           </div>
-          <div class="card-content"><span class="card-title">Civic Center Redevelopment</span><p>Upgrading civic facilities and public marketplaces for community use.</p></div>
+          <div class="card-content"><span class="card-title">Barren Hillock into Heaven</span><p>Upgrading civic facilities and public marketplaces for community use.</p></div>
         </div>
       </div>
 
@@ -314,7 +328,8 @@ footer.site-footer small { color:#666; }
             <img src="https://picsum.photos/seed/project7/600/400" alt="Project 7 image">
             <a class="btn-floating halfway-fab waves-effect waves-light green" href="https://example.com/project-7" target="_blank" rel="noopener noreferrer" aria-label="Open Project 7"><i class="material-icons">link</i></a>
           </div>
-          <div class="card-content"><span class="card-title">Lakeside Retreat</span><p>Leisure and hospitality project emphasizing nature and wellness.</p></div>
+          <div class="card-content"><span class="card-title">INTERNATIONAL MUDALIAR
+PILLAIMAR ASSOCIATION</span><p>Leisure and hospitality project emphasizing nature and wellness.</p></div>
         </div>
       </div>
 
@@ -324,7 +339,7 @@ footer.site-footer small { color:#666; }
             <img src="https://picsum.photos/seed/project8/600/400" alt="Project 8 image">
             <a class="btn-floating halfway-fab waves-effect waves-light green" href="https://example.com/project-8" target="_blank" rel="noopener noreferrer" aria-label="Open Project 8"><i class="material-icons">link</i></a>
           </div>
-          <div class="card-content"><span class="card-title">Community Hub</span><p>A central hub offering education, workshops, and local services.</p></div>
+          <div class="card-content"><span class="card-title">SOCIAL WORK ACTIVITIES & AWARDS</span><p>A central hub offering education, workshops, and local services.</p></div>
         </div>
       </div>
     </div>
