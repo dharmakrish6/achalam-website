@@ -5,799 +5,235 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arunachalam RealEstate | Real Estate Company</title>
 
-  <!-- Basic SEO -->
-  <meta name="description" content="Arunachalam RealEstate - Real estate projects by Dr. R. Arunachalam. Explore plots, townships, clubs and investment opportunities across Bengaluru and beyond.">
+  <!-- SEO -->
+  <meta name="description" content="Arunachalam RealEstate - Real estate projects, videos, and townships by Dr. R. Arunachalam.">
 
   <!-- Google Icons & Fonts -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Materialize CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
 
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    body {
-      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background-color: #f3f4f6;
-    }
+<style>
 
-    nav .brand-logo {
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
+html { scroll-behavior: smooth; }
+body { font-family: "Roboto", sans-serif; background:#f3f4f6; }
 
-    /* Generic section spacing */
-    section.section {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
+/* ===== HEADER & MENU ===== */
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 0.7rem 1.5rem;
+  background:#ffffff;
+  position:sticky;
+  top:0; left:0; width:100%;
+  z-index:999;
+  box-shadow:0 4px 18px rgba(0,0,0,0.1);
+}
 
-    /* HERO */
-    #hero {
-      padding-top: 5rem;
-      padding-bottom: 4rem;
-      background: linear-gradient(135deg, #1f7ac8, #15c04b);
-      color: #fff;
-    }
+#brand-area {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-    #hero h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
+#brand-area img {
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #15c04b;
+}
 
-    #hero p {
-      font-size: 1.1rem;
-      opacity: 0.95;
-    }
+#brand-area h4 {
+  font-family:"Poppins", sans-serif;
+  font-weight:600;
+  font-size:1.25rem;
+  margin:0;
+}
 
-    .hero-highlight {
-      color: #ffeb3b;
-      font-weight: 700;
-    }
-
-    .hero-badges .chip {
-      background-color: rgba(255, 255, 255, 0.95);
-      color: #1565c0;
-      font-weight: 500;
-    }
-
-    .hero-photo {
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-subtitle {
-      color: #757575;
-      margin-bottom: 2rem;
-    }
-
-    /* Property / video cards */
-    .property-card {
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 220ms ease, box-shadow 220ms ease;
-    }
-
-    .property-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 32px rgba(0,0,0,0.16);
-    }
-
-    .property-card .card-title {
-      padding: 10px 16px;
-    }
-
-    .chip {
-      margin-bottom: 4px;
-    }
-
-    /* Services / Projects */
-    .feature-icon {
-      font-size: 36px;
-      margin-bottom: 8px;
-    }
-
-    .projects-grid .card-title {
-      display: block;
-      margin-top: 0.5rem;
-      margin-bottom: 0.25rem;
-    }
-
-    /* Testimonials */
-    .testimonial-card {
-      border-radius: 12px;
-    }
-
-    /* Contact */
-    .contact-card {
-      border-radius: 12px;
-    }
-
-    footer.page-footer {
-      padding-top: 24px;
-    }
-
-    .footer-logo {
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    @media (max-width: 600px) {
-      #hero {
-        padding-top: 4rem;
-        padding-bottom: 3rem;
-      }
-      #hero h1 {
-        font-size: 2.1rem;
-      }
-    }
-
-    /* HERO entrance animations */
-    .hero-text-animate {
-      opacity: 0;
-      transform: translateY(24px);
-      animation: heroTextIn 800ms ease-out forwards;
-      animation-delay: 0.1s;
-    }
-
-    .hero-img-animate {
-      opacity: 0;
-      transform: translateY(32px) scale(0.96);
-      animation: heroImgIn 900ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
-      animation-delay: 0.25s;
-    }
-
-    @keyframes heroTextIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes heroImgIn {
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    /* Scroll-in animation for sections/cards */
-    .scroll-animate {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 600ms ease, transform 600ms ease;
-    }
-
-    .scroll-animate.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Scroll-to-top FAB */
-    #scroll-top-btn {
-      display: none;
-    }
-    /* NEW MENU STYLE */
+/* MENU */
 #animated-menu {
-  display: flex;
-  position: relative;
-  gap: 25px;
+  display:flex;
+  gap:25px;
 }
 
 #animated-menu li {
-  position: relative;
-  list-style: none;
-  width: 60px;
-  height: 60px;
-  background: white;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 60px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s;
-  overflow: hidden;
+  list-style:none;
+  width:60px; height:60px;
+  background:white;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+  border-radius:60px;
+  cursor:pointer;
+  display:flex; justify-content:center; align-items:center;
+  transition:.5s;
+  position:relative;
+  overflow:hidden;
 }
+
+#animated-menu li::before{
+  content:""; position:absolute; inset:0;
+  border-radius:60px;
+  background:linear-gradient(45deg, var(--i), var(--j));
+  opacity:0; transition:.5s;
+}
+
+#animated-menu li::after{
+  content:""; position:absolute; top:10px;
+  width:100%; height:100%; border-radius:60px;
+  background:linear-gradient(45deg,var(--i), var(--j));
+  filter:blur(15px); opacity:0; transition:.5s;
+}
+
+#animated-menu li:hover { width:180px; box-shadow:none; }
+#animated-menu li:hover::before{ opacity:1; }
+#animated-menu li:hover::after{ opacity:.4; }
 
 #animated-menu li a {
-  width: 100%;
-  height: 100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration: none;
-  color:inherit;
-}
-
-#animated-menu li::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 60px;
-  background: linear-gradient(45deg, var(--i), var(--j));
-  opacity: 0;
-  transition: 0.5s;
-}
-
-#animated-menu li::after {
-  content: "";
-  position: absolute;
-  top: 10px;
-  width: 100%;
-  height: 100%;
-  border-radius: 60px;
-  background: linear-gradient(45deg, var(--i), var(--j));
-  transition: 0.5s;
-  filter: blur(15px);
-  z-index: -1;
-  opacity: 0;
-}
-
-#animated-menu li:hover {
-  width: 180px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
-}
-
-#animated-menu li:hover::before {
-  opacity: 1;
-}
-
-#animated-menu li:hover::after {
-  opacity: 0.5;
+  text-decoration:none; width:100%; height:100%;
+  display:flex; justify-content:center; align-items:center;
+  position:relative;
 }
 
 #animated-menu li ion-icon {
-  color: #777;
-  font-size: 1.65rem;
-  transition: 0.5s;
-  transition-delay: 0.25s;
+  font-size:1.7rem; color:#666;
+  transition:.5s; transition-delay:.25s;
 }
 
-#animated-menu li:hover ion-icon {
-  transform: scale(0);
-  color: #fff;
-  transition-delay: 0s;
-}
-
-#animated-menu li span {
-  position: absolute;
-}
+#animated-menu li:hover ion-icon { transform:scale(0); color:white; }
 
 #animated-menu li .title {
-  color: #fff;
-  font-size: 1rem;
-  font-weight:600;
-  letter-spacing: 0.1em;
-  transform: scale(0);
-  transition: 0.5s;
-  transition-delay: 0s;
-  text-transform: uppercase;
+  position:absolute; color:white;
+  font-size:1rem; font-family:"Poppins", sans-serif;
+  letter-spacing:1px; font-weight:600;
+  transform:scale(0); transition:.5s;
 }
 
-#animated-menu li:hover .title {
-  transform: scale(1);
-  transition-delay: 0.25s;
-}
+#animated-menu li:hover .title { transform:scale(1); transition-delay:.25s; }
 
-  </style>
+/* MOBILE MENU */
+.sidenav a { font-size:1.1rem; font-weight:600; }
+
+/* SCROLL ANIMATIONS */
+.scroll-animate { opacity:0; transform:translateY(25px); transition:600ms; }
+.scroll-animate.in-view { opacity:1; transform:translateY(0); }
+
+/* HERO */
+#hero {
+  padding:5rem 0;
+  background:linear-gradient(135deg,#1f7ac8,#15c04b);
+  color:white;
+}
+.hero-photo { border-radius:12px; }
+
+/* Scroll Top */
+.fixed-action-btn { z-index:9999; }
+
+</style>
+
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
-  <!-- NEW ANIMATED NAVBAR -->
-   <nav>
-    <a href="#hero" class="brand-logo">Dr.R.Arunachalam</a>
-      <a href="#" data-target="mobile-nav" class="sidenav-trigger" aria-label="Open navigation menu">
-        <i class="material-icons">menu</i>
-      </a>
-<header style="padding: 1.2rem 0; display:flex; justify-content:center; background:#ffffff;">
-  <ul id="animated-menu">
-    <li style="--i:#1f7ac8;--j:#15c04b">
-      <a href="#hero">
-        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-        <span class="title">Home</span>
-      </a>
-    </li>
-    <li style="--i:#56CCF2;--j:#2F80ED">
-      <a href="#properties">
-        <span class="icon"><ion-icon name="videocam-outline"></ion-icon></span>
-        <span class="title">Videos</span>
-      </a>
-    </li>
-    <li style="--i:#FF9966;--j:#FF5E62">
-      <a href="#services">
-        <span class="icon"><ion-icon name="business-outline"></ion-icon></span>
-        <span class="title">Projects</span>
-      </a>
-    </li>
-    <li style="--i:#80FF72;--j:#7EE8FA">
-      <a href="#about">
-        <span class="icon"><ion-icon name="information-circle-outline"></ion-icon></span>
-        <span class="title">About</span>
-      </a>
-    </li>
-    <li style="--i:#ffa9c6;--j:#f434e2">
-      <a href="#contact">
-        <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
-        <span class="title">Contact</span>
-      </a>
-    </li>
-  </ul>
-</header>
-</nav>
-
-  <!-- MOBILE NAV -->
-  <ul class="sidenav" id="mobile-nav">
-    <li><a href="#properties">Videos</a></li>
-    <li><a href="#services">Projects</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-
-  <main>
-    <!-- HERO SECTION -->
-    <section id="hero">
-      <div class="container">
-        <div class="row">
-          <!-- Left: text + main video -->
-          <div class="col s12 m6 hero-text-animate">
-            <h1>
-              <span class="hero-highlight">Dr. R. Arunachalam</span>
-            </h1>
-            <p>
-              One Man, Many Creations – visionary real estate developer, people’s leader, and creator of landmark townships.
-            </p>
-
-            <div class="hero-badges" style="margin-top: 1.5rem;">
-              <div class="chip">
-                <i class="material-icons left">verified</i> RERA Registered
-              </div>
-              <div class="chip">
-                <i class="material-icons left">place</i> 1000+ Listings
-              </div>
-              <div class="chip">
-                <i class="material-icons left">thumb_up</i> Trusted by families
-              </div>
-            </div>
-
-            <div style="margin-top: 2rem;">
-              <div class="card property-card hoverable">
-                <div class="card-image">
-                  <div class="video-container">
-                    <iframe
-                      src="https://www.youtube.com/embed/hRPIVSGDhPY"
-                      title="Featured video of Dr. R. Arunachalam"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: photo -->
-          <div class="col s12 m6 hero-img-animate center-align">
-            <img
-              src="https://static.wixstatic.com/media/1e2236_887676c5e1ed41b4bc91703da94479f6~mv2.jpg/v1/fill/w_588,h_681,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1e2236_887676c5e1ed41b4bc91703da94479f6~mv2.jpg"
-              alt="Portrait of Dr. R. Arunachalam"
-              class="responsive-img hero-photo z-depth-3"
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURED VIDEOS – WEB COMPONENT -->
-    <section id="properties" class="section">
-      <div class="container">
-        <h2 class="section-title scroll-animate">Man of the People</h2>
-        <p class="section-subtitle scroll-animate">
-          Watch some of the memorable moments and talks of Dr. R. Arunachalam.
-        </p>
-
-        <div class="row">
-          <!-- Video 1 -->
-          <div class="col s12 m4 scroll-animate">
-            <ar-video-card
-              video-id="FGA7z7S3t_g"
-              title="Arunachalam Speech 1"
-              description="An inspiring address on community development and housing.">
-            </ar-video-card>
-          </div>
-
-          <!-- Video 2 -->
-          <div class="col s12 m4 scroll-animate">
-            <ar-video-card
-              video-id="l9Rgcpt8eBk"
-              title="Arunachalam Speech 2"
-              description="Insights on affordable housing and large-scale layout planning.">
-            </ar-video-card>
-          </div>
-
-          <!-- Video 3 -->
-          <div class="col s12 m4 scroll-animate">
-            <ar-video-card
-              video-id="hA_DtfmAjhI"
-              title="Arunachalam Speech 3"
-              description="Address to residents and investors on future growth plans.">
-            </ar-video-card>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="services" class="section grey lighten-4">
-      <div class="container">
-        <h2 class="section-title scroll-animate">Our Projects</h2>
-        <p class="section-subtitle scroll-animate">
-          Signature layouts, clubs and developments envisioned and delivered by Arunachalam RealEstate.
-        </p>
-
-        <div class="row projects-grid">
-          <div class="col s12 m4 scroll-animate">
-            <div class="card hoverable">
-              <div class="card-content center">
-                <i class="material-icons feature-icon blue-text text-darken-3">home</i>
-                <a class="card-title" href="https://www.arunachalamrrnagar.com" target="_blank" rel="noopener">
-                  RR Nagar
-                </a>
-                <p class="grey-text">
-                  Established in 1987 off Mysore Road, RR Nagar is one of the earliest landmark townships developed under Dr. Arunachalam’s vision.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m4 scroll-animate">
-            <div class="card hoverable">
-              <div class="card-content center">
-                <i class="material-icons feature-icon blue-text text-darken-3">location_city</i>
-                <a class="card-title" href="https://www.arunachalam45000plots.com" target="_blank" rel="noopener">
-                  Arunachalam 45,000 Plots
-                </a>
-                <p class="grey-text">
-                  A large-scale plotted development initiative focused on giving thousands of families access to affordable, titled land.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m4 scroll-animate">
-            <div class="card hoverable">
-              <div class="card-content center">
-                <i class="material-icons feature-icon blue-text text-darken-3">groups</i>
-                <a class="card-title" href="https://www.bestclub-arunachalam.com" target="_blank" rel="noopener">
-                  Best Club
-                </a>
-                <p class="grey-text">
-                  A premium social and sports club offering lifestyle amenities for residents and members of Arunachalam layouts.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Optional: you can keep adding more unique projects below
-               Just change the titles, URLs and descriptions as needed -->
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section-title scroll-animate">About Arunachalam RealEstate</h2>
-        <p class="section-subtitle scroll-animate">
-          A modern real estate company built on transparency, scale and a deep commitment to people.
-        </p>
-
-        <div class="row">
-          <div class="col s12 m6 scroll-animate">
-            <p>
-              Arunachalam RealEstate is a full-service real estate firm helping families and investors discover the best
-              residential and commercial properties in prime locations.
-            </p>
-            <p>
-              From large townships and plotted developments to lifestyle clubs and infrastructure, our projects are designed
-              to create long-term value and thriving communities.
-            </p>
-
-            <ul class="collection">
-              <li class="collection-item">
-                <i class="material-icons left blue-text text-darken-3">check_circle</i>
-                10+ years of experience in urban real estate
-              </li>
-              <li class="collection-item">
-                <i class="material-icons left blue-text text-darken-3">check_circle</i>
-                2000+ families helped find their dream home or plot
-              </li>
-              <li class="collection-item">
-                <i class="material-icons left blue-text text-darken-3">check_circle</i>
-                Strong partnerships with top builders & financial institutions
-              </li>
-            </ul>
-          </div>
-
-          <div class="col s12 m6 scroll-animate">
-            <div class="card">
-              <div class="card-image">
-                <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="City skyline and real estate projects">
-              </div>
-              <div class="card-content">
-                <span class="card-title">Why clients trust us</span>
-                <p>
-                  We focus on clear documentation, transparent processes and delivering exactly what is promised,
-                  building relationships that last well beyond a single transaction.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="section blue lighten-5">
-      <div class="container">
-        <h2 class="section-title scroll-animate">What Our Clients Say</h2>
-        <p class="section-subtitle scroll-animate">
-          Real experiences from people who bought, invested and lived in our projects.
-        </p>
-
-        <div class="row">
-          <div class="col s12 m4 scroll-animate">
-            <div class="card testimonial-card">
-              <div class="card-content">
-                <p class="grey-text text-darken-2">
-                  "The team understood our requirements perfectly and showed only relevant options. Documentation and registration were handled very smoothly."
-                </p>
-                <div class="section" style="margin-bottom: 0;">
-                  <span class="blue-text text-darken-3" style="font-weight:600;">Rahul &amp; Priya</span><br>
-                  <span class="grey-text">Bought a plot in RR Nagar</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m4 scroll-animate">
-            <div class="card testimonial-card">
-              <div class="card-content">
-                <p class="grey-text text-darken-2">
-                  "They helped us choose the right plot for future appreciation. Very transparent about approvals and layout plans."
-                </p>
-                <div class="section" style="margin-bottom: 0;">
-                  <span class="blue-text text-darken-3" style="font-weight:600;">Ananya</span><br>
-                  <span class="grey-text">Investor in 45,000 Plots project</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m4 scroll-animate">
-            <div class="card testimonial-card">
-              <div class="card-content">
-                <p class="grey-text text-darken-2">
-                  "Best Club has become our second home – the amenities, events and community are fantastic for our family."
-                </p>
-                <div class="section" style="margin-bottom: 0;">
-                  <span class="blue-text text-darken-3" style="font-weight:600;">Vikram</span><br>
-                  <span class="grey-text">Member at Best Club</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2 class="section-title scroll-animate">Get in Touch</h2>
-        <p class="section-subtitle scroll-animate">
-          Share your requirement and our project expert will call you back.
-        </p>
-
-        <div class="row">
-          <div class="col s12 m7 scroll-animate">
-            <div class="card contact-card">
-              <div class="card-content">
-                <span class="card-title blue-text text-darken-3">Request a Callback</span>
-                <form>
-                  <div class="input-field">
-                    <i class="material-icons prefix">person</i>
-                    <input id="name" type="text" required>
-                    <label for="name">Full Name</label>
-                  </div>
-                  <div class="input-field">
-                    <i class="material-icons prefix">phone</i>
-                    <input id="phone" type="tel" required>
-                    <label for="phone">Phone Number</label>
-                  </div>
-                  <div class="input-field">
-                    <i class="material-icons prefix">email</i>
-                    <input id="email" type="email">
-                    <label for="email">Email (optional)</label>
-                  </div>
-                  <div class="input-field">
-                    <i class="material-icons prefix">message</i>
-                    <textarea id="requirements" class="materialize-textarea"></textarea>
-                    <label for="requirements">Your Requirements</label>
-                  </div>
-
-                  <div class="center" style="margin-top: 1rem;">
-                    <button type="submit" class="btn blue darken-3 waves-effect waves-light">
-                      <i class="material-icons left">send</i> Submit
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m5 scroll-animate">
-            <ul class="collection z-depth-1">
-              <li class="collection-item">
-                <i class="material-icons left blue-text text-darken-3">place</i>
-                <span style="font-weight:600;">Office Address</span><br>
-                <span class="grey-text">#123, Skyline Towers, Main Road, Bengaluru</span>
-              </li>
-              <li class="collection-item">
-                <i class="material-icons left blue-text text-darken-3">phone</i>
-                <span style="font-weight:600;">Phone</span><br>
-                <span class="grey-text">+91-98765-43210</span>
-              </li>
-              <li class="collection-item">
-                <i class="material-icons left blue-text text-darken-3">email</i>
-                <span style="font-weight:600;">Email</span><br>
-                <span class="grey-text">hello@skylineestates.com</span>
-              </li>
-              <li class="collection-item">
-                <i class="material-icons left blue-text text-darken-3">access_time</i>
-                <span style="font-weight:600;">Working Hours</span><br>
-                <span class="grey-text">Mon – Sat, 9:30 am – 7:00 pm</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="page-footer blue darken-3">
-    <div class="container">
-      <div class="row">
-        <div class="col s12 m6">
-          <h5 class="white-text footer-logo">Arunachalam RealEstate</h5>
-          <p class="grey-text text-lighten-3">
-            Creating large-scale, people-first developments that stand the test of time.
-          </p>
-        </div>
-        <div class="col s12 m4 offset-m2">
-          <h5 class="white-text">Quick Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="#properties">Videos</a></li>
-            <li><a class="grey-text text-lighten-3" href="#services">Projects</a></li>
-            <li><a class="grey-text text-lighten-3" href="#about">About</a></li>
-            <li><a class="grey-text text-lighten-3" href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container center">
-        © <span id="year"></span> Arunachalam RealEstate. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <!-- SCROLL TO TOP FAB -->
-  <div class="fixed-action-btn">
-    <a id="scroll-top-btn" class="btn-floating btn-large red" aria-label="Scroll to top">
-      <i class="large material-icons">keyboard_arrow_up</i>
-    </a>
+<header>
+  <!-- LOGO + TITLE -->
+  <div id="brand-area">
+    <img src="logo.jpg" alt="Dr Arunachalam Portrait"> <!-- Replace here -->
+    <h4>Dr. R. Arunachalam</h4>
   </div>
 
-  <!-- MATERIALIZE JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- ANIMATED MENU -->
+  <ul id="animated-menu">
+    <li style="--i:#1f7ac8;--j:#15c04b"><a href="#hero"><ion-icon name="home-outline"></ion-icon><span class="title">Home</span></a></li>
+    <li style="--i:#56CCF2;--j:#2F80ED"><a href="#properties"><ion-icon name="videocam-outline"></ion-icon><span class="title">Videos</span></a></li>
+    <li style="--i:#FF9966;--j:#FF5E62"><a href="#services"><ion-icon name="business-outline"></ion-icon><span class="title">Projects</span></a></li>
+    <li style="--i:#80FF72;--j:#7EE8FA"><a href="#about"><ion-icon name="information-circle-outline"></ion-icon><span class="title">About</span></a></li>
+    <li style="--i:#ffa9c6;--j:#f434e2"><a href="#contact"><ion-icon name="call-outline"></ion-icon><span class="title">Contact</span></a></li>
+  </ul>
 
-  <script>
-    // Web Component: <ar-video-card>
-    class ArVideoCard extends HTMLElement {
-      connectedCallback() {
-        const title = this.getAttribute('title') || '';
-        const desc = this.getAttribute('description') || '';
-        const videoId = this.getAttribute('video-id') || '';
+  <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+</header>
 
-        this.innerHTML = `
-          <div class="card property-card hoverable">
-            <div class="card-image">
-              <div class="video-container">
-                <iframe
-                  src="https://www.youtube.com/embed/${videoId}"
-                  title="${title}"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-            <div class="card-content">
-              <span class="card-title">${title}</span>
-              <p class="grey-text">${desc}</p>
-            </div>
-          </div>
-        `;
-      }
-    }
-    customElements.define('ar-video-card', ArVideoCard);
+<!-- MOBILE NAV -->
+<ul class="sidenav" id="mobile-nav">
+  <li><a href="#hero">Home</a></li>
+  <li><a href="#properties">Videos</a></li>
+  <li><a href="#services">Projects</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
 
-    document.addEventListener("DOMContentLoaded", function () {
-      // Init sidenav
-      var sidenav = document.querySelectorAll(".sidenav");
-      M.Sidenav.init(sidenav);
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m6 scroll-animate">
+        <h1><span class="hero-highlight">One Man Many Creations</span></h1>
+        <p>Visionary Developer • Community Builder • Leader for People</p>
+      </div>
+      <div class="col s12 m6 scroll-animate center-align">
+        <img src="logo.jpg" class="responsive-img hero-photo" alt="Portrait">
+      </div>
+    </div>
+  </div>
+</section>
 
-      // Init selects (if any)
-      var selects = document.querySelectorAll("select");
-      if (selects.length) {
-        M.FormSelect.init(selects);
-      }
+<!-- VIDEO SECTION -->
+<section id="properties" class="section">
+  <div class="container">
+    <h2 class="section-title scroll-animate">Man of the People</h2>
 
-      // Set year in footer
-      document.getElementById("year").textContent = new Date().getFullYear();
+    <div class="row">
+      <div class="col s12 m4 scroll-animate"><ar-video-card video-id="FGA7z7S3t_g" title="Speech 1"></ar-video-card></div>
+      <div class="col s12 m4 scroll-animate"><ar-video-card video-id="l9Rgcpt8eBk" title="Speech 2"></ar-video-card></div>
+      <div class="col s12 m4 scroll-animate"><ar-video-card video-id="hA_DtfmAjhI" title="Speech 3"></ar-video-card></div>
+    </div>
+  </div>
+</section>
 
-      // Scroll-in animations using IntersectionObserver
-      const scrollEls = document.querySelectorAll('.scroll-animate');
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-      scrollEls.forEach(el => observer.observe(el));
+<!-- SCROLL TO TOP -->
+<div class="fixed-action-btn">
+  <a id="scroll-top-btn" class="btn-floating btn-large red"><i class="large material-icons">keyboard_arrow_up</i></a>
+</div>
 
-      // Scroll-to-top button behavior
-      const scrollTopBtn = document.getElementById('scroll-top-btn');
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  M.Sidenav.init(document.querySelectorAll(".sidenav"));
 
-      window.addEventListener('scroll', () => {
-        const y = window.scrollY || window.pageYOffset;
-        scrollTopBtn.style.display = y > 300 ? 'block' : 'none';
-      });
+  const els = document.querySelectorAll(".scroll-animate");
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add("in-view"); }});
+  },{ threshold:.15 });
 
-      scrollTopBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    });
-  </script>
+  els.forEach(el=>observer.observe(el));
+
+  document.getElementById("scroll-top-btn")
+    .addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+});
+
+// Web Component
+class ArVideoCard extends HTMLElement {
+  connectedCallback() {
+    const id = this.getAttribute("video-id");
+    const title = this.getAttribute("title");
+    this.innerHTML = `
+      <div class="card hoverable">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/${id}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="card-content"><h6>${title}</h6></div>
+      </div>`;
+  }
+}
+customElements.define("ar-video-card", ArVideoCard);
+</script>
+
 </body>
 </html>
