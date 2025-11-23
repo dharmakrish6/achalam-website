@@ -195,6 +195,13 @@ section:not(#hero):nth-of-type(even) { background:#f7fbff; }
 /* Scroll Top */
 .fixed-action-btn { z-index:9999; }
 
+/* PORTRAIT TILT + OVERLAY */
+.portrait { display:inline-block; perspective:1100px; position:relative; }
+.portrait-img { transition:transform .12s ease-out; transform-style:preserve-3d; will-change:transform; border-radius:12px; }
+.portrait-info { position:absolute; left:50%; bottom:10px; transform:translateX(-50%) translateY(6px); background:rgba(0,0,0,0.6); color:#fff; padding:10px 14px; border-radius:8px; text-align:center; opacity:0; transition:opacity .25s ease, transform .25s ease; pointer-events:none; font-size:0.95rem; backdrop-filter: blur(4px); }
+.portrait-info .muted { font-size:0.85rem; opacity:0.9; margin-top:4px; font-weight:400; }
+.portrait:hover .portrait-info, .portrait:focus-within .portrait-info { opacity:1; transform:translateX(-50%) translateY(0); }
+
 </style>
 
 </head>
@@ -248,7 +255,13 @@ section:not(#hero):nth-of-type(even) { background:#f7fbff; }
         <img src="logo.png" class="responsive-img hero-photo" alt="Portrait">
       </div>
       <div class="col s12 m6 scroll-animate center-align">
-        <img src="https://static.wixstatic.com/media/1e2236_887676c5e1ed41b4bc91703da94479f6~mv2.jpg/v1/fill/w_588,h_681,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1e2236_887676c5e1ed41b4bc91703da94479f6~mv2.jpg" class="responsive-img hero-photo" alt="Portrait">
+        <div class="portrait" aria-hidden="false">
+          <img src="https://static.wixstatic.com/media/1e2236_887676c5e1ed41b4bc91703da94479f6~mv2.jpg/v1/fill/w_588,h_681,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1e2236_887676c5e1ed41b4bc91703da94479f6~mv2.jpg" class="responsive-img hero-photo portrait-img" alt="Dr. R. Arunachalam portrait">
+          <div class="portrait-info" aria-hidden="true">
+            <strong>Dr. R. Arunachalam</strong>
+            <div class="muted">Community Builder • Visionary • Leader</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -325,53 +338,77 @@ section:not(#hero):nth-of-type(even) { background:#f7fbff; }
       </div>
 
       <div class="col s12 m6 l3 scroll-animate">
-        <div class="card hoverable">
+        <div class="card hoverable transition">
           <div class="card-image">
             <img src="https://picsum.photos/seed/project4/600/400" alt="Project 4 image">
             <a class="btn-floating halfway-fab waves-effect waves-light green" href="https://example.com/project-4" target="_blank" rel="noopener noreferrer" aria-label="Open Project 4"><i class="material-icons">link</i></a>
           </div>
-          <div class="card-content"><span class="card-title">Integrated Marketting and Producers Associations</span><p>Affordable housing initiative with modern utilities and parks.</p></div>
+          <div class="card-content">
+            <span class="card-title">Integrated Marketting and Producers Associations</span>
+            <p>Affordable housing initiative with modern utilities and parks.</p>
+            <div class="cta-container"><a class="cta" href="https://example.com/project-4" target="_blank" rel="noopener">Visit</a></div>
+          </div>
+          <div class="card_circle" style="background-image:url('https://picsum.photos/seed/project4/600/400')"></div>
         </div>
       </div>
 
       <div class="col s12 m6 l3 scroll-animate">
-        <div class="card hoverable">
+        <div class="card hoverable transition">
           <div class="card-image">
             <img src="https://picsum.photos/seed/project5/600/400" alt="Project 5 image">
             <a class="btn-floating halfway-fab waves-effect waves-light green" href="https://example.com/project-5" target="_blank" rel="noopener noreferrer" aria-label="Open Project 5"><i class="material-icons">link</i></a>
           </div>
-          <div class="card-content"><span class="card-title">Execution of 4500 Sites</span><p>Restoration and development of public gardens and cultural spaces.</p></div>
+          <div class="card-content">
+            <span class="card-title">Execution of 4500 Sites</span>
+            <p>Restoration and development of public gardens and cultural spaces.</p>
+            <div class="cta-container"><a class="cta" href="https://example.com/project-5" target="_blank" rel="noopener">Visit</a></div>
+          </div>
+          <div class="card_circle" style="background-image:url('https://picsum.photos/seed/project5/600/400')"></div>
         </div>
       </div>
 
       <div class="col s12 m6 l3 scroll-animate">
-        <div class="card hoverable">
+        <div class="card hoverable transition">
           <div class="card-image">
             <img src="https://picsum.photos/seed/project6/600/400" alt="Project 6 image">
             <a class="btn-floating halfway-fab waves-effect waves-light green" href="https://example.com/project-6" target="_blank" rel="noopener noreferrer" aria-label="Open Project 6"><i class="material-icons">link</i></a>
           </div>
-          <div class="card-content"><span class="card-title">Barren Hillock into Heaven</span><p>Upgrading civic facilities and public marketplaces for community use.</p></div>
+          <div class="card-content">
+            <span class="card-title">Barren Hillock into Heaven</span>
+            <p>Upgrading civic facilities and public marketplaces for community use.</p>
+            <div class="cta-container"><a class="cta" href="https://example.com/project-6" target="_blank" rel="noopener">Visit</a></div>
+          </div>
+          <div class="card_circle" style="background-image:url('https://picsum.photos/seed/project6/600/400')"></div>
         </div>
       </div>
 
       <div class="col s12 m6 l3 scroll-animate">
-        <div class="card hoverable">
+        <div class="card hoverable transition">
           <div class="card-image">
             <img src="https://static.wixstatic.com/media/ee78e8_eb5b0a919cdf4ee3a3b65c492915fc96~mv2.jpg/v1/fill/w_1387,h_795,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ee78e8_eb5b0a919cdf4ee3a3b65c492915fc96~mv2.jpg" alt="Project 7 image">
             <a class="btn-floating halfway-fab waves-effect waves-light green" href="https://example.com/project-7" target="_blank" rel="noopener noreferrer" aria-label="Open Project 7"><i class="material-icons">link</i></a>
           </div>
-          <div class="card-content"><span class="card-title">International Mudaliar
-Pillaimar Associations</span><p>Leisure and hospitality project emphasizing nature and wellness.</p></div>
+          <div class="card-content">
+            <span class="card-title">International Mudaliar Pillaimar Associations</span>
+            <p>Leisure and hospitality project emphasizing nature and wellness.</p>
+            <div class="cta-container"><a class="cta" href="https://example.com/project-7" target="_blank" rel="noopener">Visit</a></div>
+          </div>
+          <div class="card_circle" style="background-image:url('https://static.wixstatic.com/media/ee78e8_eb5b0a919cdf4ee3a3b65c492915fc96~mv2.jpg/v1/fill/w_1387,h_795,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ee78e8_eb5b0a919cdf4ee3a3b65c492915fc96~mv2.jpg')"></div>
         </div>
       </div>
 
       <div class="col s12 m6 l3 scroll-animate">
-        <div class="card hoverable">
+        <div class="card hoverable transition">
           <div class="card-image">
             <img src="https://static.wixstatic.com/media/ee78e8_39d81a593b71439cb60241229f36e651~mv2.jpg/v1/fill/w_1183,h_795,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ee78e8_39d81a593b71439cb60241229f36e651~mv2.jpg" alt="Project 8 image">
             <a class="btn-floating halfway-fab waves-effect waves-light green" href="https://example.com/project-8" target="_blank" rel="noopener noreferrer" aria-label="Open Project 8"><i class="material-icons">link</i></a>
           </div>
-          <div class="card-content"><span class="card-title">Social Works Activities & Awards</span><p>A central hub offering education, workshops, and local services.</p></div>
+          <div class="card-content">
+            <span class="card-title">Social Works Activities & Awards</span>
+            <p>A central hub offering education, workshops, and local services.</p>
+            <div class="cta-container"><a class="cta" href="https://example.com/project-8" target="_blank" rel="noopener">Visit</a></div>
+          </div>
+          <div class="card_circle" style="background-image:url('https://static.wixstatic.com/media/ee78e8_39d81a593b71439cb60241229f36e651~mv2.jpg/v1/fill/w_1183,h_795,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ee78e8_39d81a593b71439cb60241229f36e651~mv2.jpg')"></div>
         </div>
       </div>
     </div>
@@ -454,6 +491,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById("scroll-top-btn")
     .addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+  // Portrait tilt interaction: rotate image based on cursor position, reveal short info
+  document.querySelectorAll('.portrait').forEach(p => {
+    const img = p.querySelector('.portrait-img');
+    const info = p.querySelector('.portrait-info');
+    if(!img) return;
+
+    const handleMove = (e) => {
+      const rect = p.getBoundingClientRect();
+      const x = e.clientX - rect.left; // x within element
+      const y = e.clientY - rect.top;  // y within element
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const rx = (y - cy) / cy; // -1..1
+      const ry = (x - cx) / cx; // -1..1
+      const max = 10; // degrees
+      const rotX = (-rx * max).toFixed(2);
+      const rotY = (ry * max).toFixed(2);
+      img.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(6px)`;
+      if(info){ info.style.opacity = '1'; info.style.transform = 'translateX(-50%) translateY(0)'; }
+    };
+
+    const handleLeave = () => {
+      img.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
+      if(info){ info.style.opacity = '0'; info.style.transform = 'translateX(-50%) translateY(6px)'; }
+    };
+
+    p.addEventListener('mousemove', handleMove);
+    p.addEventListener('mouseleave', handleLeave);
+    p.addEventListener('touchstart', (ev)=>{ if(info) info.style.opacity='1'; }, {passive:true});
+    p.addEventListener('touchend', (ev)=>{ handleLeave(); }, {passive:true});
+  });
 });
 
 // Web Component
