@@ -134,6 +134,13 @@ header {
 .card.hoverable:hover { transform: rotateY(8deg) translateY(-8px); box-shadow:0 18px 40px rgba(0,0,0,0.18); }
 .card.hoverable:hover .card-image img { transform: rotateY(-12deg) scale(1.03); }
 
+/* FOOTER */
+footer.site-footer { background:#ffffff; padding:1rem 0; border-top:1px solid #e9ecef; }
+footer.site-footer .container { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+footer.site-footer .brand { display:flex; align-items:center; gap:10px; font-weight:600; color:#222; }
+footer.site-footer .brand img { width:36px; height:36px; border-radius:6px; object-fit:cover; border:2px solid #15c04b; }
+footer.site-footer small { color:#666; }
+
 /* HERO */
 #hero {
   padding:5rem 0;
@@ -166,7 +173,7 @@ header {
     <a href="#properties"><ion-icon name="videocam-outline"></ion-icon><span class="title">Videos</span></a>
   </li>
   <li style="--i:#FF9966;--j:#FF5E62">
-    <a href="#services"><ion-icon name="business-outline"></ion-icon><span class="title">Projects</span></a>
+    <a href="#project"><ion-icon name="business-outline"></ion-icon><span class="title">Projects</span></a>
   </li>
   <li style="--i:#80FF72;--j:#7EE8FA">
     <a href="#about"><ion-icon name="information-circle-outline"></ion-icon><span class="title">About</span></a>
@@ -396,3 +403,13 @@ customElements.define("ar-video-card", ArVideoCard);
 
 </body>
 </html>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="brand">
+      <img src="https://picsum.photos/seed/techieqa/72/72" alt="TechieQA logo">
+      <span>TechieQA Software Pvt.Ltd</span>
+    </div>
+    <small>© 2025 TechieQA Software Pvt.Ltd. All rights reserved.</small>
+  </div>
+</footer>
