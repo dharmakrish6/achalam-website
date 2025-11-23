@@ -191,31 +191,151 @@
     #scroll-top-btn {
       display: none;
     }
+    /* NEW MENU STYLE */
+#animated-menu {
+  display: flex;
+  position: relative;
+  gap: 25px;
+}
+
+#animated-menu li {
+  position: relative;
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 60px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+#animated-menu li a {
+  width: 100%;
+  height: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration: none;
+  color:inherit;
+}
+
+#animated-menu li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 60px;
+  background: linear-gradient(45deg, var(--i), var(--j));
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#animated-menu li::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  background: linear-gradient(45deg, var(--i), var(--j));
+  transition: 0.5s;
+  filter: blur(15px);
+  z-index: -1;
+  opacity: 0;
+}
+
+#animated-menu li:hover {
+  width: 180px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
+}
+
+#animated-menu li:hover::before {
+  opacity: 1;
+}
+
+#animated-menu li:hover::after {
+  opacity: 0.5;
+}
+
+#animated-menu li ion-icon {
+  color: #777;
+  font-size: 1.65rem;
+  transition: 0.5s;
+  transition-delay: 0.25s;
+}
+
+#animated-menu li:hover ion-icon {
+  transform: scale(0);
+  color: #fff;
+  transition-delay: 0s;
+}
+
+#animated-menu li span {
+  position: absolute;
+}
+
+#animated-menu li .title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight:600;
+  letter-spacing: 0.1em;
+  transform: scale(0);
+  transition: 0.5s;
+  transition-delay: 0s;
+  text-transform: uppercase;
+}
+
+#animated-menu li:hover .title {
+  transform: scale(1);
+  transition-delay: 0.25s;
+}
+
   </style>
 </head>
 
 <body>
 
   <!-- NAVBAR -->
-  <nav class="blue darken-3 z-depth-2" aria-label="Main Navigation">
-    <div class="nav-wrapper container">
-      <a href="#hero" class="brand-logo">Dr.R.Arunachalam</a>
-      <a href="#" data-target="mobile-nav" class="sidenav-trigger" aria-label="Open navigation menu">
-        <i class="material-icons">menu</i>
+  <!-- NEW ANIMATED NAVBAR -->
+<header style="padding: 1.2rem 0; display:flex; justify-content:center; background:#ffffff;">
+  <ul id="animated-menu">
+    <li style="--i:#1f7ac8;--j:#15c04b">
+      <a href="#hero">
+        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+        <span class="title">Home</span>
       </a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#properties">Videos</a></li>
-        <li><a href="#services">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li>
-          <a class="btn-small yellow darken-3 waves-effect waves-light" href="#contact">
-            <i class="material-icons left">phone</i>Contact
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    </li>
+    <li style="--i:#56CCF2;--j:#2F80ED">
+      <a href="#properties">
+        <span class="icon"><ion-icon name="videocam-outline"></ion-icon></span>
+        <span class="title">Videos</span>
+      </a>
+    </li>
+    <li style="--i:#FF9966;--j:#FF5E62">
+      <a href="#services">
+        <span class="icon"><ion-icon name="business-outline"></ion-icon></span>
+        <span class="title">Projects</span>
+      </a>
+    </li>
+    <li style="--i:#80FF72;--j:#7EE8FA">
+      <a href="#about">
+        <span class="icon"><ion-icon name="information-circle-outline"></ion-icon></span>
+        <span class="title">About</span>
+      </a>
+    </li>
+    <li style="--i:#ffa9c6;--j:#f434e2">
+      <a href="#contact">
+        <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
+        <span class="title">Contact</span>
+      </a>
+    </li>
+  </ul>
+</header>
+
 
   <!-- MOBILE NAV -->
   <ul class="sidenav" id="mobile-nav">
