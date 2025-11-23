@@ -16,6 +16,10 @@
   />
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background-color: #f3f4f6;
@@ -87,6 +91,12 @@
     .property-card {
       border-radius: 12px;
       overflow: hidden;
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .property-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 32px rgba(0,0,0,0.16);
     }
 
     .property-card .card-image img {
@@ -143,6 +153,52 @@
         font-size: 2.1rem;
       }
     }
+
+    /* HERO entrance animations */
+    .hero-text-animate {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: heroTextIn 800ms ease-out forwards;
+      animation-delay: 0.1s;
+    }
+
+    .hero-img-animate {
+      opacity: 0;
+      transform: translateY(32px) scale(0.96);
+      animation: heroImgIn 900ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      animation-delay: 0.25s;
+    }
+
+    @keyframes heroTextIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heroImgIn {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Scroll-in animation for sections/cards */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+
+    .scroll-animate.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Scroll-to-top FAB */
+    #scroll-top-btn {
+      display: none;
+    }
   </style>
 </head>
 
@@ -183,25 +239,36 @@
     <div class="container">
       <div class="row">
         <!-- Left: content -->
-        <div class="col s12 m6">
+        <div class="col s12 m6 hero-text-animate">
           <h1>
             <span class="hero-highlight">R. Arunachalam</span>
           </h1>
           <p>
             One Man Many Creations
           </p>
-          <div class="col s12 m6">
+
+          <div class="hero-badges" style="margin-top: 1.5rem;">
+            <div class="chip">
+              <i class="material-icons left">verified</i> RERA Registered
+            </div>
+            <div class="chip">
+              <i class="material-icons left">place</i> 1000+ Listings
+            </div>
+            <div class="chip">
+              <i class="material-icons left">thumb_up</i> Trusted by families
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: photo + main video -->
+        <div class="col s12 m6 hero-img-animate">
           <img
             src="https://static.wixstatic.com/media/1e2236_887676c5e1ed41b4bc91703da94479f6~mv2.jpg/v1/fill/w_588,h_681,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1e2236_887676c5e1ed41b4bc91703da94479f6~mv2.jpg"
             alt="Portrait"
             class="responsive-img hero-photo z-depth-3"
           >
-        </div>
-        
-        </div>
 
-        <!-- Right: photo -->
-        <div class="card property-card hoverable">
+          <div class="card property-card hoverable">
             <div class="card-image">
               <div class="video-container">
                 <iframe
@@ -211,85 +278,61 @@
                   allowfullscreen
                 ></iframe>
               </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
-  <!-- FEATURED PROPERTIES – NOW YOUTUBE VIDEOS -->
+  <!-- FEATURED PROPERTIES – YOUTUBE VIDEOS USING WEB COMPONENT -->
   <section id="properties" class="section">
     <div class="container">
-      <h2 class="section-title">Man of the people</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title scroll-animate">Man of the people</h2>
+      <p class="section-subtitle scroll-animate">
         Watch some of the memorable moments and talks of Dr. R. Arunachalam.
       </p>
 
       <div class="row">
-        
+        <!-- Video 1 -->
+        <div class="col s12 m4 scroll-animate">
+          <ar-video-card
+            video-id="FGA7z7S3t_g"
+            title="Arunachalam Speech 1"
+            description="Short description for video 1.">
+          </ar-video-card>
+        </div>
+
         <!-- Video 2 -->
-        <div class="col s12 m4">
-          <div class="card property-card hoverable">
-            <div class="card-image">
-              <div class="video-container">
-                <iframe
-                  src="https://www.youtube.com/embed/FGA7z7S3t_g"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-          </div>
+        <div class="col s12 m4 scroll-animate">
+          <ar-video-card
+            video-id="l9Rgcpt8eBk"
+            title="Arunachalam Speech 2"
+            description="Short description for video 2.">
+          </ar-video-card>
         </div>
 
         <!-- Video 3 -->
-        <div class="col s12 m4">
-          <div class="card property-card hoverable">
-            <div class="card-image">
-              <div class="video-container">
-                <iframe
-                  src="https://www.youtube.com/embed/l9Rgcpt8eBk"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="card property-card hoverable">
-            <div class="card-image">
-              <div class="video-container">
-                <iframe
-                  src="https://www.youtube.com/embed/hA_DtfmAjhI"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-          </div>
+        <div class="col s12 m4 scroll-animate">
+          <ar-video-card
+            video-id="hA_DtfmAjhI"
+            title="Arunachalam Speech 3"
+            description="Short description for video 3.">
+          </ar-video-card>
         </div>
       </div>
-
-      <!-- Add more rows of videos if you want -->
-      <!--
-      <div class="row">
-        ...duplicate the 3-column structure above for more YouTube links...
-      </div>
-      -->
     </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services" class="section grey lighten-4">
     <div class="container">
-      <h2 class="section-title">Our Services</h2>
-      <p class="section-subtitle">End-to-end support for buyers, sellers, landlords and investors.</p>
+      <h2 class="section-title scroll-animate">Our Services</h2>
+      <p class="section-subtitle scroll-animate">End-to-end support for buyers, sellers, landlords and investors.</p>
 
       <div class="row">
-        <div class="col s12 m4">
+        <div class="col s12 m4 scroll-animate">
           <div class="card hoverable">
             <div class="card-content center">
               <i class="material-icons feature-icon blue-text text-darken-3">home</i>
@@ -301,7 +344,7 @@
           </div>
         </div>
 
-        <div class="col s12 m4">
+        <div class="col s12 m4 scroll-animate">
           <div class="card hoverable">
             <div class="card-content center">
               <i class="material-icons feature-icon blue-text text-darken-3">sell</i>
@@ -313,7 +356,7 @@
           </div>
         </div>
 
-        <div class="col s12 m4">
+        <div class="col s12 m4 scroll-animate">
           <div class="card hoverable">
             <div class="card-content center">
               <i class="material-icons feature-icon blue-text text-darken-3">analytics</i>
@@ -332,13 +375,13 @@
   <!-- ABOUT -->
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title">About Arunachalam RealEstate</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title scroll-animate">About Arunachalam RealEstate</h2>
+      <p class="section-subtitle scroll-animate">
         A modern real estate company built on transparency, data and customer obsession.
       </p>
 
       <div class="row">
-        <div class="col s12 m6">
+        <div class="col s12 m6 scroll-animate">
           <p>
             Arunachalam RealEstate is a full-service real estate firm helping families and investors discover the best
             residential and commercial properties in prime locations.
@@ -363,7 +406,7 @@
           </ul>
         </div>
 
-        <div class="col s12 m6">
+        <div class="col s12 m6 scroll-animate">
           <div class="card">
             <div class="card-image">
               <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800" alt="City view">
@@ -384,13 +427,13 @@
   <!-- TESTIMONIALS -->
   <section id="testimonials" class="section blue lighten-5">
     <div class="container">
-      <h2 class="section-title">What Our Clients Say</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title scroll-animate">What Our Clients Say</h2>
+      <p class="section-subtitle scroll-animate">
         Real experiences from people who bought, sold and invested with us.
       </p>
 
       <div class="row">
-        <div class="col s12 m4">
+        <div class="col s12 m4 scroll-animate">
           <div class="card testimonial-card">
             <div class="card-content">
               <p class="grey-text text-darken-2">
@@ -404,7 +447,7 @@
           </div>
         </div>
 
-        <div class="col s12 m4">
+        <div class="col s12 m4 scroll-animate">
           <div class="card testimonial-card">
             <div class="card-content">
               <p class="grey-text text-darken-2">
@@ -418,7 +461,7 @@
           </div>
         </div>
 
-        <div class="col s12 m4">
+        <div class="col s12 m4 scroll-animate">
           <div class="card testimonial-card">
             <div class="card-content">
               <p class="grey-text text-darken-2">
@@ -439,13 +482,13 @@
   <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container">
-      <h2 class="section-title">Get in Touch</h2>
-      <p class="section-subtitle">
+      <h2 class="section-title scroll-animate">Get in Touch</h2>
+      <p class="section-subtitle scroll-animate">
         Share your requirement and our property expert will call you back.
       </p>
 
       <div class="row">
-        <div class="col s12 m7">
+        <div class="col s12 m7 scroll-animate">
           <div class="card contact-card">
             <div class="card-content">
               <span class="card-title blue-text text-darken-3">Request a Callback</span>
@@ -481,7 +524,7 @@
           </div>
         </div>
 
-        <div class="col s12 m5">
+        <div class="col s12 m5 scroll-animate">
           <ul class="collection z-depth-1">
             <li class="collection-item">
               <i class="material-icons left blue-text text-darken-3">place</i>
@@ -538,10 +581,46 @@
     </div>
   </footer>
 
+  <!-- SCROLL TO TOP FAB -->
+  <div class="fixed-action-btn">
+    <a id="scroll-top-btn" class="btn-floating btn-large red">
+      <i class="large material-icons">keyboard_arrow_up</i>
+    </a>
+  </div>
+
   <!-- MATERIALIZE JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <script>
+    // Web Component: <ar-video-card>
+    class ArVideoCard extends HTMLElement {
+      connectedCallback() {
+        const title = this.getAttribute('title') || '';
+        const desc = this.getAttribute('description') || '';
+        const videoId = this.getAttribute('video-id') || '';
+
+        this.innerHTML = `
+          <div class="card property-card hoverable">
+            <div class="card-image">
+              <div class="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/${videoId}"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="card-title">${title}</span>
+              <p class="grey-text">${desc}</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+    customElements.define('ar-video-card', ArVideoCard);
+
     document.addEventListener("DOMContentLoaded", function () {
       // Init sidenav
       var sidenav = document.querySelectorAll(".sidenav");
@@ -549,10 +628,40 @@
 
       // Init selects
       var selects = document.querySelectorAll("select");
-      M.FormSelect.init(selects);
+      if (selects.length) {
+        M.FormSelect.init(selects);
+      }
 
       // Set year in footer
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Scroll-in animations using IntersectionObserver
+      const scrollEls = document.querySelectorAll('.scroll-animate');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      scrollEls.forEach(el => observer.observe(el));
+
+      // Scroll-to-top button behavior
+      const scrollTopBtn = document.getElementById('scroll-top-btn');
+
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY || window.pageYOffset;
+        scrollTopBtn.style.display = y > 300 ? 'block' : 'none';
+      });
+
+      scrollTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     });
   </script>
 </body>
