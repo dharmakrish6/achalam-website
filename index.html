@@ -76,6 +76,7 @@ header {
   transition:.5s;
   position:relative;
   overflow:hidden;
+  pointer-events: none;
 }
 
 #animated-menu li::before{
@@ -100,6 +101,7 @@ header {
   text-decoration:none; width:100%; height:100%;
   display:flex; justify-content:center; align-items:center;
   position:relative;
+  pointer-events: auto;
 }
 
 #animated-menu li ion-icon {
@@ -157,12 +159,22 @@ header {
 
   <!-- ANIMATED MENU -->
   <ul id="animated-menu">
-    <li style="--i:#1f7ac8;--j:#15c04b"><a href="#hero"><ion-icon name="home-outline"></ion-icon><span class="title">Home</span></a></li>
-    <li style="--i:#56CCF2;--j:#2F80ED"><a href="#properties"><ion-icon name="videocam-outline"></ion-icon><span class="title">Videos</span></a></li>
-    <li style="--i:#FF9966;--j:#FF5E62"><a href="#project"><ion-icon name="business-outline"></ion-icon><span class="title">Projects</span></a></li>
-    <li style="--i:#80FF72;--j:#7EE8FA"><a href="#about"><ion-icon name="information-circle-outline"></ion-icon><span class="title">About</span></a></li>
-    <li style="--i:#ffa9c6;--j:#f434e2"><a href="#contact"><ion-icon name="call-outline"></ion-icon><span class="title">Contact</span></a></li>
-  </ul>
+  <li style="--i:#1f7ac8;--j:#15c04b">
+    <a href="#hero"><ion-icon name="home-outline"></ion-icon><span class="title">Home</span></a>
+  </li>
+  <li style="--i:#56CCF2;--j:#2F80ED">
+    <a href="#properties"><ion-icon name="videocam-outline"></ion-icon><span class="title">Videos</span></a>
+  </li>
+  <li style="--i:#FF9966;--j:#FF5E62">
+    <a href="#services"><ion-icon name="business-outline"></ion-icon><span class="title">Projects</span></a>
+  </li>
+  <li style="--i:#80FF72;--j:#7EE8FA">
+    <a href="#about"><ion-icon name="information-circle-outline"></ion-icon><span class="title">About</span></a>
+  </li>
+  <li style="--i:#ffa9c6;--j:#f434e2">
+    <a href="#contact"><ion-icon name="call-outline"></ion-icon><span class="title">Contact</span></a>
+  </li>
+</ul>
 
   <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 </header>
